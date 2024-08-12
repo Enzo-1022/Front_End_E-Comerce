@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+input:focus,textarea:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.ulLinks{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sectionProdutos{
+    display: flex;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5% 10% 1% 10%;
+}
