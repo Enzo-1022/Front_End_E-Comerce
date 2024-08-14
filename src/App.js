@@ -1,13 +1,9 @@
 import './App.css';
-import NavBar from "./componentes/navBar"
-import Section from "./componentes/sectionMain";
+import  HomePage  from "./pages/homePage";
 
 function App() {
   return ( 
-    <> 
-      <NavBar />
-      <Section />
-    </> 
+    <HomePage />
   );
 }
 
