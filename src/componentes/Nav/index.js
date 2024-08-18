@@ -1,6 +1,6 @@
 function Lista(){
     return (
-        <ul class="ulLinks">
+        <ul className="ulLinks">
             <li> <a href=""> Home </a> </li>
             <li> <a href=""> Sobre Nós </a> </li>
             <li> <a href=""> Categoria de Produtos </a> </li>
