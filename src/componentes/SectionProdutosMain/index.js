@@ -4,11 +4,9 @@ var arrayDeDivDeProdutos = [];
 
 var matriz = [];
 
-var contador = 1;
+var contador = 0;
 
-var junta = [];
-
-var controlador = 3;
+var vetorAuxiliar = [];
 
 var imgEs = "https://http2.mlstatic.com/D_NQ_NP_926348-MLB46306672293_062021-O.webp";
 
@@ -25,14 +23,10 @@ var imgEs = "https://http2.mlstatic.com/D_NQ_NP_926348-MLB46306672293_062021-O.w
 
 produtos = [
     {Nome_Produto: "teste", Descricao_Produto: "Testando"},
-    {Nome_Produto: "teste", Descricao_Produto: "Testando"},
-    {Nome_Produto: "teste", Descricao_Produto: "Testando"},
-    {Nome_Produto: "teste", Descricao_Produto: "Testando"},
-    {Nome_Produto: "teste", Descricao_Produto: "Testando"},
-    {Nome_Produto: "teste", Descricao_Produto: "Testando"},
+    {Nome_Produto: "teste", Descricao_Produto: "Testando"}
 ];
 
-produtos.map( (element) => {
+produtos.map( (element) => { // o metodo map executa a função que esta nele para cada item da array, e nos estamos retornando cada elemento que veio da nossa api com toda a formatação html para serem exibidos
     return arrayDeDivDeProdutos.push(
         <div>
             <img src={imgEs} alt="Turbina"/>
@@ -42,48 +36,23 @@ produtos.map( (element) => {
     )
 })
 
-// Falta resolver os bugs aqui, na minha logica devo depurar e saber como anda a varaivel de controle acho que o erro esta nela
-for(var key = 0; key <= arrayDeDivDeProdutos.length; key++) {
+// Resolvi o bug basicamente fiz tudo dnv, Esse for itera sobre a array de elementos jsx com todos os produtos cadastrados no banco e, faz uma matriz com 3 colunas para que possamos exibir em modo de matriz na tela
+for(var key of arrayDeDivDeProdutos) {
 
-    junta.push(arrayDeDivDeProdutos.shift());
-
-    if (contador === controlador) {
-        
-        matriz.push(junta);
-
-        junta = []
-
-        if(arrayDeDivDeProdutos.length > 3){
-
-            controlador += 3;
-
-        }else{
-
-            let contador2 = 0;
-
-            while (contador2 <= arrayDeDivDeProdutos.length) {
-                junta.push(arrayDeDivDeProdutos.shift());
-
-                contador2++
-            }
-
-            matriz.push(junta);
-        }
-        
-    }else if(arrayDeDivDeProdutos.length < 3 && contador == 2){
-        matriz.push(junta);
-
-        junta = []
-    }else if(arrayDeDivDeProdutos.length < 2 && contador == 1){
-        matriz.push(junta);
-
-        junta = []
-    }
+    vetorAuxiliar.push(key);
 
     contador++
+
+    if (vetorAuxiliar.length ===  3 || contador === arrayDeDivDeProdutos.length) {
+        
+        matriz.push(vetorAuxiliar);
+
+        vetorAuxiliar = []
+    }
 }
 
-export default function Section(){
+    
+export default function Section(){ // essa função retorna nosso componente react.
     return(
         <section className="sectionProdutos">
             {
