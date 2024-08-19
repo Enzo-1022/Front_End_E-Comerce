@@ -1,12 +1,12 @@
+// Importando o botao
+import BotaoAddCarrinho from '../botaoAdcCarrinho/index'
+
+// Variaveis usadas para exibir os produtos
 var produtos;
 
-var arrayDeDivDeProdutos = [];
-
-var matriz = [];
+var arrayDeDivDeProdutos = [], matriz = [], vetorAuxiliar = [];
 
 var contador = 0;
-
-var vetorAuxiliar = [];
 
 var imgEs = "https://http2.mlstatic.com/D_NQ_NP_926348-MLB46306672293_062021-O.webp";
 
@@ -28,10 +28,11 @@ produtos = [
 
 produtos.map( (element) => { // o metodo map executa a função que esta nele para cada item da array, e nos estamos retornando cada elemento que veio da nossa api com toda a formatação html para serem exibidos
     return arrayDeDivDeProdutos.push(
-        <div>
-            <img src={imgEs} alt="Turbina"/>
+        <div className='boxProdutos'>
+            <img src={imgEs} alt="Turbina" className='imgProduto'/>
             <h3>{element.Nome_Produto}</h3>
             <p>{element.Descricao_Produto}</p>
+            <BotaoAddCarrinho/>
         </div>
     )
 })
@@ -58,7 +59,7 @@ export default function Section(){ // essa função retorna nosso componente rea
             {
                 matriz.map( (element)=> {
                         return(
-                            <div className="boxProdutos">
+                            <div className="containerProdutos">
                                 {element}
                             </div>
                         )
